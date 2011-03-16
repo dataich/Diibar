@@ -11,6 +11,8 @@
 @interface DiibarAppDelegate : NSObject <NSApplicationDelegate> {
 @private
     NSWindow *window;
+    NSStatusItem *_statusItem;
+    IBOutlet NSMenu *_menu;
 }
 
 @property (assign) IBOutlet NSWindow *window;

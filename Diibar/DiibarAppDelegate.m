@@ -14,7 +14,12 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    _statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+    [_statusItem setHighlightMode:YES];
+    [_statusItem setTitle:@"Diibar"]; 
+    //    [statusItem setImage:[NSImage imageNamed:@"example.png"]];
+    [_statusItem setMenu:_menu];
+    [_statusItem setEnabled:YES];
 }
 
 @end

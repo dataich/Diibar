@@ -1,0 +1,288 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A414D6013312868002B9FAE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A414D5F13312868002B9FAE /* Cocoa.framework */; };
+		0A414D6A13312868002B9FAE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A414D6813312868002B9FAE /* InfoPlist.strings */; };
+		0A414D6D13312868002B9FAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A414D6C13312868002B9FAE /* main.m */; };
+		0A414D7013312868002B9FAE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0A414D6E13312868002B9FAE /* Credits.rtf */; };
+		0A414D7313312868002B9FAE /* DiibarAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A414D7213312868002B9FAE /* DiibarAppDelegate.m */; };
+		0A414D7613312869002B9FAE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A414D7413312869002B9FAE /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0A414D5B13312868002B9FAE /* Diibar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diibar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A414D5F13312868002B9FAE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		0A414D6213312868002B9FAE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		0A414D6313312868002B9FAE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0A414D6413312868002B9FAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0A414D6713312868002B9FAE /* Diibar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Diibar-Info.plist"; sourceTree = "<group>"; };
+		0A414D6913312868002B9FAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0A414D6B13312868002B9FAE /* Diibar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Diibar-Prefix.pch"; sourceTree = "<group>"; };
+		0A414D6C13312868002B9FAE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0A414D6F13312868002B9FAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		0A414D7113312868002B9FAE /* DiibarAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiibarAppDelegate.h; sourceTree = "<group>"; };
+		0A414D7213312868002B9FAE /* DiibarAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiibarAppDelegate.m; sourceTree = "<group>"; };
+		0A414D7513312869002B9FAE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0A414D5813312868002B9FAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A414D6013312868002B9FAE /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A414D5013312868002B9FAE = {
+			isa = PBXGroup;
+			children = (
+				0A414D6513312868002B9FAE /* Diibar */,
+				0A414D5E13312868002B9FAE /* Frameworks */,
+				0A414D5C13312868002B9FAE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0A414D5C13312868002B9FAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A414D5B13312868002B9FAE /* Diibar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0A414D5E13312868002B9FAE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A414D5F13312868002B9FAE /* Cocoa.framework */,
+				0A414D6113312868002B9FAE /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0A414D6113312868002B9FAE /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A414D6213312868002B9FAE /* AppKit.framework */,
+				0A414D6313312868002B9FAE /* CoreData.framework */,
+				0A414D6413312868002B9FAE /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		0A414D6513312868002B9FAE /* Diibar */ = {
+			isa = PBXGroup;
+			children = (
+				0A414D7113312868002B9FAE /* DiibarAppDelegate.h */,
+				0A414D7213312868002B9FAE /* DiibarAppDelegate.m */,
+				0A414D7413312869002B9FAE /* MainMenu.xib */,
+				0A414D6613312868002B9FAE /* Supporting Files */,
+			);
+			path = Diibar;
+			sourceTree = "<group>";
+		};
+		0A414D6613312868002B9FAE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0A414D6713312868002B9FAE /* Diibar-Info.plist */,
+				0A414D6813312868002B9FAE /* InfoPlist.strings */,
+				0A414D6B13312868002B9FAE /* Diibar-Prefix.pch */,
+				0A414D6C13312868002B9FAE /* main.m */,
+				0A414D6E13312868002B9FAE /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0A414D5A13312868002B9FAE /* Diibar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A414D7913312869002B9FAE /* Build configuration list for PBXNativeTarget "Diibar" */;
+			buildPhases = (
+				0A414D5713312868002B9FAE /* Sources */,
+				0A414D5813312868002B9FAE /* Frameworks */,
+				0A414D5913312868002B9FAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Diibar;
+			productName = Diibar;
+			productReference = 0A414D5B13312868002B9FAE /* Diibar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0A414D5213312868002B9FAE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "有限会社ランカードコム";
+			};
+			buildConfigurationList = 0A414D5513312868002B9FAE /* Build configuration list for PBXProject "Diibar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0A414D5013312868002B9FAE;
+			productRefGroup = 0A414D5C13312868002B9FAE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0A414D5A13312868002B9FAE /* Diibar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0A414D5913312868002B9FAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A414D6A13312868002B9FAE /* InfoPlist.strings in Resources */,
+				0A414D7013312868002B9FAE /* Credits.rtf in Resources */,
+				0A414D7613312869002B9FAE /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0A414D5713312868002B9FAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A414D6D13312868002B9FAE /* main.m in Sources */,
+				0A414D7313312868002B9FAE /* DiibarAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0A414D6813312868002B9FAE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A414D6913312868002B9FAE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0A414D6E13312868002B9FAE /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A414D6F13312868002B9FAE /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		0A414D7413312869002B9FAE /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A414D7513312869002B9FAE /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0A414D7713312869002B9FAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0A414D7813312869002B9FAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0A414D7A13312869002B9FAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Diibar/Diibar-Prefix.pch";
+				INFOPLIST_FILE = "Diibar/Diibar-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0A414D7B13312869002B9FAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Diibar/Diibar-Prefix.pch";
+				INFOPLIST_FILE = "Diibar/Diibar-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0A414D5513312868002B9FAE /* Build configuration list for PBXProject "Diibar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A414D7713312869002B9FAE /* Debug */,
+				0A414D7813312869002B9FAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A414D7913312869002B9FAE /* Build configuration list for PBXNativeTarget "Diibar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A414D7A13312869002B9FAE /* Debug */,
+				0A414D7B13312869002B9FAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0A414D5213312868002B9FAE /* Project object */;
+}

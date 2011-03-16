@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Diibar' target in the 'Diibar' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

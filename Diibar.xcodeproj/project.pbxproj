@@ -49,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		0A291223133503640069CC7C /* JSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A29122D133519530069CC7C /* Secret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secret.h; sourceTree = "<group>"; };
 		0A2F84771334FFCB001553ED /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = "../../Library/json-framework/JSON.xcodeproj"; sourceTree = "<group>"; };
 		0A414D5B13312868002B9FAE /* Diibar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diibar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A414D5F13312868002B9FAE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -134,6 +135,7 @@
 				0A414D7213312868002B9FAE /* DiibarAppDelegate.m */,
 				0A414D7413312869002B9FAE /* MainMenu.xib */,
 				0A414D6613312868002B9FAE /* Supporting Files */,
+				0A29122D133519530069CC7C /* Secret.h */,
 			);
 			path = Diibar;
 			sourceTree = "<group>";

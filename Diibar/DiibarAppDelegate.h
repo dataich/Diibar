@@ -13,8 +13,13 @@
     NSWindow *window;
     NSStatusItem *_statusItem;
     IBOutlet NSMenu *_menu;
+    IBOutlet NSMenuItem *_recentlyItem;
+    NSMutableData *_data;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, retain) NSMutableData *_data;
+
+- (void)getBookmarks;
 
 @end

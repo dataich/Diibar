@@ -1,0 +1,3 @@
+[submodule "Library/JSON"]
+	path = Library/JSON
+	url = https://github.com/stig/json-framework.git

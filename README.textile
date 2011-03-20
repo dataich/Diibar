@@ -2,7 +2,7 @@ h1. Diibar
 
 h2. ABOUT
 
-*In Development!!*
+*In Development, almost!!*
 Diibar is a Diigo client in menubar for Mac OS X.
 
 h2. Destination
@@ -14,9 +14,12 @@ h2. LICENSE
 
 I'm thinking...
 
-h2. Included software
+h2. Thanks for...
 
 This product contains some open-sourced materials.
 
 * JSON Framework by Stig Brautaset
 https://github.com/stig/json-framework
+
+* BWToolkit by Brandon Walkin
+http://brandonwalkin.com/bwtoolkit/

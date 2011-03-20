@@ -15,6 +15,8 @@
 @synthesize window;
 @synthesize _data;
 
+static const NSString *applicationName = @"Diibar";
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     _statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
@@ -24,6 +26,7 @@
     [_statusItem setMenu:_menu];
     [_statusItem setEnabled:YES];
     
+    [self createBookmarkItems];
     [self getBookmarks];
 }
 
@@ -42,6 +45,16 @@
     [[NSWorkspace sharedWorkspace] openURL:url];
 }
 
+- (void)createBookmarkItems {
+    [[_recentlyItem submenu] removeAllItems];
+    NSArray *bookmarks = [NSArray arrayWithContentsOfFile:[self getPlistPath]];
+    for (NSDictionary *bookmark in bookmarks) {
+        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:[bookmark valueForKey:@"title"] action:@selector(openBrowser:) keyEquivalent:@""];
+        [item setToolTip:[bookmark valueForKey:@"url"]];
+        [[_recentlyItem submenu] addItem:item];
+        [item release];
+    }
+}
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     NSLog(@"didReceiveResponse");
     _data = [[NSMutableData alloc] initWithData:0];
@@ -61,12 +74,24 @@
     NSString *jsonString = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
     NSArray *json = [jsonString JSONValue];
     
-    for (NSDictionary *bookmarks in json) {
-        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:[bookmarks valueForKey:@"title"] action:@selector(openBrowser:) keyEquivalent:@""];
-        [item setToolTip:[bookmarks valueForKey:@"url"]];
-        [[_recentlyItem submenu] addItem:item];
-        [item release];
+    NSString *directory = [self getPlistDirectory];
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    BOOL isDirectory = YES;
+    if(![manager fileExistsAtPath:directory isDirectory:&isDirectory]) {
+        NSError *error;
+        if(![manager createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:&error]) {
+            NSLog(@"%@", [error description]); 
+        }
     }
+        
+    NSString *plistPath = [self getPlistPath];
+    if(![json writeToFile:plistPath atomically:YES]) {
+        NSLog(@"could not write plist file.");
+        exit(0);
+    }
+    
+    [self createBookmarkItems];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
@@ -78,6 +103,20 @@
                                                               persistence:NSURLCredentialPersistenceNone];
         [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
     }
+}
+
+- (NSString*)getPlistDirectory {
+    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES); 
+    NSString *directory = [NSString stringWithFormat:@"%@/%@", [directories objectAtIndex:0], applicationName];
+
+    return directory;
+}
+
+- (NSString*)getPlistPath {
+    NSString *directory = [self getPlistDirectory];
+    NSString *plistPath = [NSString stringWithFormat:@"%@/%@.plist", directory, applicationName];
+    
+    return plistPath;
 }
 
 @end

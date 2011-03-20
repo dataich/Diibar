@@ -21,5 +21,8 @@
 @property (nonatomic, retain) NSMutableData *_data;
 
 - (void)getBookmarks;
+- (void)createBookmarkItems;
+- (NSString*)getPlistDirectory;
+- (NSString*)getPlistPath;
 
 @end

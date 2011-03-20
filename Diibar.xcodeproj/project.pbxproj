@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A291224133503640069CC7C /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A291223133503640069CC7C /* JSON.framework */; };
+		0A346CAA133679E100416F1E /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A346CA1133679D100416F1E /* JSON.framework */; };
 		0A414D6013312868002B9FAE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A414D5F13312868002B9FAE /* Cocoa.framework */; };
 		0A414D6A13312868002B9FAE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A414D6813312868002B9FAE /* InfoPlist.strings */; };
 		0A414D6D13312868002B9FAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A414D6C13312868002B9FAE /* main.m */; };
@@ -17,40 +17,46 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0A2F84801334FFCB001553ED /* PBXContainerItemProxy */ = {
+		0A346CA0133679D100416F1E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0A2F84771334FFCB001553ED /* JSON.xcodeproj */;
+			containerPortal = 0A346C97133679D100416F1E /* JSON.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 53D229810C96121600276605;
+			remoteGlobalIDString = 53D229810C96121600276605 /* JSON.framework */;
 			remoteInfo = JSON;
 		};
-		0A2F84821334FFCB001553ED /* PBXContainerItemProxy */ = {
+		0A346CA2133679D100416F1E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0A2F84771334FFCB001553ED /* JSON.xcodeproj */;
+			containerPortal = 0A346C97133679D100416F1E /* JSON.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 53D2298D0C96122A00276605;
+			remoteGlobalIDString = 53D2298D0C96122A00276605 /* Tests.octest */;
 			remoteInfo = Tests;
 		};
-		0A2F84841334FFCB001553ED /* PBXContainerItemProxy */ = {
+		0A346CA4133679D100416F1E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0A2F84771334FFCB001553ED /* JSON.xcodeproj */;
+			containerPortal = 0A346C97133679D100416F1E /* JSON.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = FE2BBD800D8B0D3900184787;
+			remoteGlobalIDString = FE2BBD800D8B0D3900184787 /* libjson.a */;
 			remoteInfo = libjson;
 		};
-		0A2F84861334FFCB001553ED /* PBXContainerItemProxy */ = {
+		0A346CA6133679D100416F1E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0A2F84771334FFCB001553ED /* JSON.xcodeproj */;
+			containerPortal = 0A346C97133679D100416F1E /* JSON.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = FE2BBDAB0D8B0EE000184787;
+			remoteGlobalIDString = FE2BBDAB0D8B0EE000184787 /* libjsontests.octest */;
 			remoteInfo = libjsontests;
+		};
+		0A346CAF133679FD00416F1E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A346C97133679D100416F1E /* JSON.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53D229800C96121600276605 /* JSON */;
+			remoteInfo = JSON;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A291223133503640069CC7C /* JSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A29122D133519530069CC7C /* Secret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secret.h; sourceTree = "<group>"; };
-		0A2F84771334FFCB001553ED /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = "../../Library/json-framework/JSON.xcodeproj"; sourceTree = "<group>"; };
+		0A346C97133679D100416F1E /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = Library/JSON/JSON.xcodeproj; sourceTree = "<group>"; };
 		0A414D5B13312868002B9FAE /* Diibar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diibar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A414D5F13312868002B9FAE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		0A414D6213312868002B9FAE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -71,21 +77,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A291224133503640069CC7C /* JSON.framework in Frameworks */,
 				0A414D6013312868002B9FAE /* Cocoa.framework in Frameworks */,
+				0A346CAA133679E100416F1E /* JSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A2F84781334FFCB001553ED /* Products */ = {
+		0A346C98133679D100416F1E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A2F84811334FFCB001553ED /* JSON.framework */,
-				0A2F84831334FFCB001553ED /* Tests.octest */,
-				0A2F84851334FFCB001553ED /* libjson.a */,
-				0A2F84871334FFCB001553ED /* libjsontests.octest */,
+				0A346CA1133679D100416F1E /* JSON.framework */,
+				0A346CA3133679D100416F1E /* Tests.octest */,
+				0A346CA5133679D100416F1E /* libjson.a */,
+				0A346CA7133679D100416F1E /* libjsontests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,8 +99,7 @@
 		0A414D5013312868002B9FAE = {
 			isa = PBXGroup;
 			children = (
-				0A291223133503640069CC7C /* JSON.framework */,
-				0A2F84771334FFCB001553ED /* JSON.xcodeproj */,
+				0A346C97133679D100416F1E /* JSON.xcodeproj */,
 				0A414D6513312868002B9FAE /* Diibar */,
 				0A414D5E13312868002B9FAE /* Frameworks */,
 				0A414D5C13312868002B9FAE /* Products */,
@@ -166,6 +171,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0A346CB0133679FD00416F1E /* PBXTargetDependency */,
 			);
 			name = Diibar;
 			productName = Diibar;
@@ -178,7 +184,7 @@
 		0A414D5213312868002B9FAE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				ORGANIZATIONNAME = "有限会社ランカードコム";
+				ORGANIZATIONNAME = "Taichiro Yoshida";
 			};
 			buildConfigurationList = 0A414D5513312868002B9FAE /* Build configuration list for PBXProject "Diibar" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -192,8 +198,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 0A2F84781334FFCB001553ED /* Products */;
-					ProjectRef = 0A2F84771334FFCB001553ED /* JSON.xcodeproj */;
+					ProductGroup = 0A346C98133679D100416F1E /* Products */;
+					ProjectRef = 0A346C97133679D100416F1E /* JSON.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -204,32 +210,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		0A2F84811334FFCB001553ED /* JSON.framework */ = {
+		0A346CA1133679D100416F1E /* JSON.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = JSON.framework;
-			remoteRef = 0A2F84801334FFCB001553ED /* PBXContainerItemProxy */;
+			remoteRef = 0A346CA0133679D100416F1E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0A2F84831334FFCB001553ED /* Tests.octest */ = {
+		0A346CA3133679D100416F1E /* Tests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = Tests.octest;
-			remoteRef = 0A2F84821334FFCB001553ED /* PBXContainerItemProxy */;
+			remoteRef = 0A346CA2133679D100416F1E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0A2F84851334FFCB001553ED /* libjson.a */ = {
+		0A346CA5133679D100416F1E /* libjson.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libjson.a;
-			remoteRef = 0A2F84841334FFCB001553ED /* PBXContainerItemProxy */;
+			remoteRef = 0A346CA4133679D100416F1E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0A2F84871334FFCB001553ED /* libjsontests.octest */ = {
+		0A346CA7133679D100416F1E /* libjsontests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = libjsontests.octest;
-			remoteRef = 0A2F84861334FFCB001553ED /* PBXContainerItemProxy */;
+			remoteRef = 0A346CA6133679D100416F1E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -258,6 +264,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0A346CB0133679FD00416F1E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JSON;
+			targetProxy = 0A346CAF133679FD00416F1E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0A414D6813312868002B9FAE /* InfoPlist.strings */ = {
@@ -291,6 +305,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -299,6 +314,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -309,11 +325,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 			};
@@ -332,6 +350,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Diibar/Diibar-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Diibar/Diibar-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -351,6 +370,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Diibar/Diibar-Prefix.pch";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "Diibar/Diibar-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

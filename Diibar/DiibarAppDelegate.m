@@ -61,7 +61,6 @@ static const NSString *applicationName = @"Diibar";
                 NSMenu *menu = [[NSMenu alloc] init];
                 tagItem = [[[NSMenuItem alloc] initWithTitle:tag action:nil keyEquivalent:@""] autorelease];
                 [tagItem setSubmenu:menu];
-                [[_tagsItem submenu] addItem:tagItem];
                 [_tagsDictionary setObject:tagItem forKey:tag];
                 
                 [menu release];
@@ -71,6 +70,12 @@ static const NSString *applicationName = @"Diibar";
             [[tagItem submenu] addItem:itemInTag];
             [itemInTag release];
         }
+    }
+    
+    NSArray *sortedKeys = [[_tagsDictionary allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    for(NSString *key in sortedKeys) {
+        NSMenuItem *tagItem = [_tagsDictionary valueForKey:key];
+        [[_tagsItem submenu] addItem:tagItem];        
     }
 }
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -102,7 +107,11 @@ static const NSString *applicationName = @"Diibar";
             NSLog(@"%@", [error description]); 
         }
     }
-        
+
+    NSSortDescriptor *sortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    NSArray *sortDescripters = [NSArray arrayWithObject:sortDescripter];
+    json = [json sortedArrayUsingDescriptors:sortDescripters];
+    
     NSString *plistPath = [self getPlistPath];
     if(![json writeToFile:plistPath atomically:YES]) {
         NSLog(@"could not write plist file.");

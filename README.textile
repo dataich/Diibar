@@ -1,0 +1,22 @@
+h1. Diibar
+
+h2. ABOUT
+
+*In Development!!*
+Diibar is a Diigo client in menubar for Mac OS X.
+
+h2. Destination
+
+* Sync diibar's bookmarks
+* Open bookmark with default browser and non-default browser.
+
+h2. LICENSE
+
+I'm thinking...
+
+h2. Included software
+
+This product contains some open-sourced materials.
+
+* JSON Framework by Stig Brautaset
+https://github.com/stig/json-framework

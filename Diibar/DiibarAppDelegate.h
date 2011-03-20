@@ -14,11 +14,14 @@
     NSStatusItem *_statusItem;
     IBOutlet NSMenu *_menu;
     IBOutlet NSMenuItem *_recentlyItem;
+    IBOutlet NSMenuItem *_tagsItem;
     NSMutableData *_data;
+    NSMutableDictionary *_tagsDictionary;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, retain) NSMutableData *_data;
+@property (nonatomic, retain) NSMutableDictionary *_tagsDictionary;
 
 - (void)getBookmarks;
 - (void)createBookmarkItems;

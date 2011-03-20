@@ -14,6 +14,7 @@
 
 @synthesize window;
 @synthesize _data;
+@synthesize _tagsDictionary;
 
 static const NSString *applicationName = @"Diibar";
 
@@ -46,13 +47,38 @@ static const NSString *applicationName = @"Diibar";
 }
 
 - (void)createBookmarkItems {
+    _tagsDictionary = [[NSMutableDictionary alloc] init];
+    [[_tagsItem submenu] removeAllItems];
     [[_recentlyItem submenu] removeAllItems];
+
     NSArray *bookmarks = [NSArray arrayWithContentsOfFile:[self getPlistPath]];
+    
     for (NSDictionary *bookmark in bookmarks) {
-        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:[bookmark valueForKey:@"title"] action:@selector(openBrowser:) keyEquivalent:@""];
-        [item setToolTip:[bookmark valueForKey:@"url"]];
-        [[_recentlyItem submenu] addItem:item];
-        [item release];
+
+        NSMenuItem *itemInRecently = [[NSMenuItem alloc] initWithTitle:[bookmark valueForKey:@"title"] action:@selector(openBrowser:) keyEquivalent:@""];
+        [itemInRecently setToolTip:[bookmark valueForKey:@"url"]];
+        [[_recentlyItem submenu] addItem:itemInRecently];
+        
+        NSArray *tags = [[bookmark valueForKey:@"tags"] componentsSeparatedByString:@"'"];
+
+        for(NSString *tag in tags) {
+            NSMenuItem *tagItem = [_tagsDictionary valueForKey:tag];
+            if(!tagItem) {
+                NSMenu *menu = [[NSMenu alloc] init];
+                tagItem = [[[NSMenuItem alloc] initWithTitle:tag action:nil keyEquivalent:@""] autorelease];
+                [tagItem setSubmenu:menu];
+                [[_tagsItem submenu] addItem:tagItem];
+                [_tagsDictionary setObject:tagItem forKey:tag];
+                
+                [menu release];
+            }
+            
+            NSMenuItem *itemInTag = [[NSMenuItem alloc] initWithTitle:[bookmark valueForKey:@"title"] action:@selector(openBrowser:) keyEquivalent:@""];
+            [[tagItem submenu] addItem:itemInTag];
+            [itemInTag release];
+        }
+        
+        [itemInRecently release];
     }
 }
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {

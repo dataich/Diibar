@@ -13,7 +13,6 @@
     NSWindow *window;
     NSStatusItem *_statusItem;
     IBOutlet NSMenu *_menu;
-    IBOutlet NSMenuItem *_recentlyItem;
     IBOutlet NSMenuItem *_tagsItem;
     NSMutableData *_data;
     NSMutableDictionary *_tagsDictionary;

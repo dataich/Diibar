@@ -49,16 +49,10 @@ static const NSString *applicationName = @"Diibar";
 - (void)createBookmarkItems {
     _tagsDictionary = [[NSMutableDictionary alloc] init];
     [[_tagsItem submenu] removeAllItems];
-    [[_recentlyItem submenu] removeAllItems];
 
     NSArray *bookmarks = [NSArray arrayWithContentsOfFile:[self getPlistPath]];
     
     for (NSDictionary *bookmark in bookmarks) {
-
-        NSMenuItem *itemInRecently = [[NSMenuItem alloc] initWithTitle:[bookmark valueForKey:@"title"] action:@selector(openBrowser:) keyEquivalent:@""];
-        [itemInRecently setToolTip:[bookmark valueForKey:@"url"]];
-        [[_recentlyItem submenu] addItem:itemInRecently];
-        
         NSArray *tags = [[bookmark valueForKey:@"tags"] componentsSeparatedByString:@"'"];
 
         for(NSString *tag in tags) {
@@ -77,8 +71,6 @@ static const NSString *applicationName = @"Diibar";
             [[tagItem submenu] addItem:itemInTag];
             [itemInTag release];
         }
-        
-        [itemInRecently release];
     }
 }
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {

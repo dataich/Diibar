@@ -31,7 +31,7 @@ static const NSString *applicationName = @"Diibar";
 }
 
 - (void)getBookmarks {
-    NSString *uri = [NSString stringWithFormat:@"https://secure.diigo.com/api/v2/bookmarks?key=%@&user=%@&count=10", kKey, kUser];
+    NSString *uri = [NSString stringWithFormat:@"https://secure.diigo.com/api/v2/bookmarks?filter=all&count=100&key=%@&user=%@", kKey, kUser];
     
     NSURL *url = [NSURL URLWithString:uri];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -73,7 +73,7 @@ static const NSString *applicationName = @"Diibar";
     NSLog(@"connectionDidFinishLoading");
     NSString *jsonString = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
     NSArray *json = [jsonString JSONValue];
-    
+    NSLog(@"%@", jsonString); 
     NSString *directory = [self getPlistDirectory];
     
     NSFileManager *manager = [NSFileManager defaultManager];

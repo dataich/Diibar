@@ -95,8 +95,9 @@ static const NSString *applicationName = @"Diibar";
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSLog(@"connectionDidFinishLoading");
     NSString *jsonString = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", jsonString);
+    [jsonString release];
     NSArray *json = [jsonString JSONValue];
-    NSLog(@"%@", jsonString); 
     NSString *directory = [self getPlistDirectory];
     
     NSFileManager *manager = [NSFileManager defaultManager];
@@ -144,6 +145,17 @@ static const NSString *applicationName = @"Diibar";
     NSString *plistPath = [NSString stringWithFormat:@"%@/%@.plist", directory, applicationName];
     
     return plistPath;
+}
+
+- (void)dealloc {
+    [super dealloc];
+
+    [window release];
+    [_statusItem release];
+    [_menu release];
+    [_tagsItem release];
+    [_data release];
+    [_tagsDictionary release];
 }
 
 @end

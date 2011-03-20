@@ -13,6 +13,7 @@
 @implementation DiibarAppDelegate
 
 @synthesize window;
+@synthesize _preferencesPanel;
 @synthesize _data;
 @synthesize _tagsDictionary;
 
@@ -27,8 +28,10 @@ static const NSString *applicationName = @"Diibar";
     [_statusItem setMenu:_menu];
     [_statusItem setEnabled:YES];
     
+    [_preferenceItem setAction:@selector(showPreferencesPanel)];
+    
     [self createBookmarkItems];
-    [self getBookmarks];
+    [self getBookmarks];    
 }
 
 - (void)getBookmarks {
@@ -78,6 +81,11 @@ static const NSString *applicationName = @"Diibar";
         [[_tagsItem submenu] addItem:tagItem];        
     }
 }
+
+- (IBAction)showPreferencesPanel {
+    [_preferencesPanel setIsVisible:YES];
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     NSLog(@"didReceiveResponse");
     _data = [[NSMutableData alloc] initWithData:0];

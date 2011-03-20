@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A346CAA133679E100416F1E /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A346CA1133679D100416F1E /* JSON.framework */; };
+		0A346D5C13367CBB00416F1E /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A346D5B13367CBB00416F1E /* BWToolkitFramework.framework */; };
+		0A346D6613367CED00416F1E /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A346D5B13367CBB00416F1E /* BWToolkitFramework.framework */; };
 		0A414D6013312868002B9FAE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A414D5F13312868002B9FAE /* Cocoa.framework */; };
 		0A414D6A13312868002B9FAE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A414D6813312868002B9FAE /* InfoPlist.strings */; };
 		0A414D6D13312868002B9FAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A414D6C13312868002B9FAE /* main.m */; };
@@ -21,42 +23,56 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0A346C97133679D100416F1E /* JSON.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 53D229810C96121600276605 /* JSON.framework */;
+			remoteGlobalIDString = 53D229810C96121600276605;
 			remoteInfo = JSON;
 		};
 		0A346CA2133679D100416F1E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0A346C97133679D100416F1E /* JSON.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 53D2298D0C96122A00276605 /* Tests.octest */;
+			remoteGlobalIDString = 53D2298D0C96122A00276605;
 			remoteInfo = Tests;
 		};
 		0A346CA4133679D100416F1E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0A346C97133679D100416F1E /* JSON.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = FE2BBD800D8B0D3900184787 /* libjson.a */;
+			remoteGlobalIDString = FE2BBD800D8B0D3900184787;
 			remoteInfo = libjson;
 		};
 		0A346CA6133679D100416F1E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0A346C97133679D100416F1E /* JSON.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = FE2BBDAB0D8B0EE000184787 /* libjsontests.octest */;
+			remoteGlobalIDString = FE2BBDAB0D8B0EE000184787;
 			remoteInfo = libjsontests;
 		};
 		0A346CAF133679FD00416F1E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0A346C97133679D100416F1E /* JSON.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 53D229800C96121600276605 /* JSON */;
+			remoteGlobalIDString = 53D229800C96121600276605;
 			remoteInfo = JSON;
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0A346D7213367CF300416F1E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0A346D6613367CED00416F1E /* BWToolkitFramework.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0A29122D133519530069CC7C /* Secret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secret.h; sourceTree = "<group>"; };
 		0A346C97133679D100416F1E /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = Library/JSON/JSON.xcodeproj; sourceTree = "<group>"; };
+		0A346D5B13367CBB00416F1E /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = Library/Frameworks/BWToolkitFramework.framework; sourceTree = DEVELOPER_DIR; };
 		0A414D5B13312868002B9FAE /* Diibar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diibar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A414D5F13312868002B9FAE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		0A414D6213312868002B9FAE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -79,6 +95,7 @@
 			files = (
 				0A414D6013312868002B9FAE /* Cocoa.framework in Frameworks */,
 				0A346CAA133679E100416F1E /* JSON.framework in Frameworks */,
+				0A346D5C13367CBB00416F1E /* BWToolkitFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +146,7 @@
 				0A414D6213312868002B9FAE /* AppKit.framework */,
 				0A414D6313312868002B9FAE /* CoreData.framework */,
 				0A414D6413312868002B9FAE /* Foundation.framework */,
+				0A346D5B13367CBB00416F1E /* BWToolkitFramework.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -167,6 +185,7 @@
 				0A414D5713312868002B9FAE /* Sources */,
 				0A414D5813312868002B9FAE /* Frameworks */,
 				0A414D5913312868002B9FAE /* Resources */,
+				0A346D7213367CF300416F1E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -345,6 +364,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -366,6 +386,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

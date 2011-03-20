@@ -11,19 +11,23 @@
 @interface DiibarAppDelegate : NSObject <NSApplicationDelegate> {
 @private
     NSWindow *window;
+    NSPanel *_preferencesPanel;
     NSStatusItem *_statusItem;
     IBOutlet NSMenu *_menu;
     IBOutlet NSMenuItem *_tagsItem;
+    IBOutlet NSMenuItem *_preferenceItem;
     NSMutableData *_data;
     NSMutableDictionary *_tagsDictionary;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSPanel *_preferencesPanel;
 @property (nonatomic, retain) NSMutableData *_data;
 @property (nonatomic, retain) NSMutableDictionary *_tagsDictionary;
 
 - (void)getBookmarks;
 - (void)createBookmarkItems;
+- (IBAction)showPreferencesPanel;
 - (NSString*)getPlistDirectory;
 - (NSString*)getPlistPath;
 

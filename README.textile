@@ -12,14 +12,4 @@ h2. Destination
 
 h2. LICENSE
 
-I'm thinking...
-
-h2. Thanks for...
-
-This product contains some open-sourced materials.
-
-* JSON Framework by Stig Brautaset
-https://github.com/stig/json-framework
-
-* BWToolkit by Brandon Walkin
-http://brandonwalkin.com/bwtoolkit/
+New BSD License. See LICENSE.txt. This product contains some open-sourced materials, see README.txt in detail.

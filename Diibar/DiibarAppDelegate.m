@@ -30,7 +30,7 @@ static const NSInteger count = 100;
     [_statusItem setMenu:_menu];
     [_statusItem setEnabled:YES];
     
-    [_syncButton setAction:@selector(getBookmarks)];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getBookmarks) name:NSWindowWillCloseNotification object:_preferencesPanel];
     [_preferenceItem setAction:@selector(showPreferencesPanel)];
     
     [self createBookmarkItems];
@@ -122,7 +122,7 @@ static const NSInteger count = 100;
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"didFailWithError");    
+    NSLog(@"didFailWithError:%@", [error description]);    
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -205,6 +205,8 @@ static const NSInteger count = 100;
 - (void)dealloc {
     [super dealloc];
 
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     [window release];
     [_statusItem release];
     [_menu release];

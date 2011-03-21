@@ -123,7 +123,7 @@ static const NSInteger maxRecent = 100;
     NSArray *sortedKeys = [[_tagsDictionary allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     for(NSString *key in sortedKeys) {
         NSMenuItem *tagItem = [_tagsDictionary valueForKey:key];
-        [_menu insertItem:tagItem atIndex:2];
+        [_menu insertItem:tagItem atIndex:5];
     }
 }
 

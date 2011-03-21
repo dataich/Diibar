@@ -16,8 +16,10 @@
 @synthesize _preferencesPanel;
 @synthesize _data;
 @synthesize _tagsDictionary;
+@synthesize _jsonArray;
 
 static const NSString *applicationName = @"Diibar";
+static const NSInteger count = 100;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -47,13 +49,22 @@ static const NSString *applicationName = @"Diibar";
                         @"Preferences", nil, nil);
         [_preferencesPanel setIsVisible:YES];
         return;
-    }    
+    }
     
-    NSString *uri = [NSString stringWithFormat:@"https://secure.diigo.com/api/v2/bookmarks?filter=all&count=100&key=%@&user=%@", kKey, username];
+    _jsonArray = [[NSMutableArray alloc] init];
+    _start = 0;
+    [self fetchBookmarks];
+}
+
+- (void)fetchBookmarks {
+    NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"values.username"];
+
+    NSString *uri = [NSString stringWithFormat:@"https://secure.diigo.com/api/v2/bookmarks?filter=all&count=%d&key=%@&user=%@&start=%d", count, kKey, username, _start];
+    NSLog(@"%@", uri);
     
     NSURL *url = [NSURL URLWithString:uri];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-
+    
     NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:self];
     [connection start];
 }
@@ -120,28 +131,42 @@ static const NSString *applicationName = @"Diibar";
     NSLog(@"%@", jsonString);
     [jsonString release];
     NSArray *json = [jsonString JSONValue];
-    NSString *directory = [self getPlistDirectory];
     
-    NSFileManager *manager = [NSFileManager defaultManager];
-    BOOL isDirectory = YES;
-    if(![manager fileExistsAtPath:directory isDirectory:&isDirectory]) {
-        NSError *error;
-        if(![manager createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:&error]) {
-            NSLog(@"%@", [error description]); 
+    if([json isKindOfClass:[NSArray class]]) {
+        if(0 < [json count]) {
+            [_jsonArray addObjectsFromArray:json];
+            _start = _start + count;
+            [self fetchBookmarks];
+        } else {
+            NSString *directory = [self getPlistDirectory];
+            
+            NSFileManager *manager = [NSFileManager defaultManager];
+            BOOL isDirectory = YES;
+            if(![manager fileExistsAtPath:directory isDirectory:&isDirectory]) {
+                NSError *error;
+                if(![manager createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:&error]) {
+                    NSLog(@"%@", [error description]); 
+                }
+            }
+            
+            NSSortDescriptor *sortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+            NSArray *sortDescripters = [NSArray arrayWithObject:sortDescripter];
+            NSArray *sortedArray = [[NSArray arrayWithArray:_jsonArray] sortedArrayUsingDescriptors:sortDescripters];
+            
+            NSString *plistPath = [self getPlistPath];
+            if(![sortedArray writeToFile:plistPath atomically:YES]) {
+                NSLog(@"could not write plist file.");
+                exit(0);
+            }
+            _jsonArray = nil;
+            [_jsonArray release];
+            
+            [self createBookmarkItems];
         }
+    } else if ([json isKindOfClass:[NSDictionary class]]) {
+        [self fetchBookmarks];
     }
 
-    NSSortDescriptor *sortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
-    NSArray *sortDescripters = [NSArray arrayWithObject:sortDescripter];
-    json = [json sortedArrayUsingDescriptors:sortDescripters];
-    
-    NSString *plistPath = [self getPlistPath];
-    if(![json writeToFile:plistPath atomically:YES]) {
-        NSLog(@"could not write plist file.");
-        exit(0);
-    }
-    
-    [self createBookmarkItems];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {

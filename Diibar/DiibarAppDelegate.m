@@ -8,7 +8,7 @@
 
 #import "DiibarAppDelegate.h"
 #import <JSON/JSON.h>
-#import "Secret.h"
+#import "Config.h"
 
 @implementation DiibarAppDelegate
 

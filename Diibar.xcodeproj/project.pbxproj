@@ -70,7 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A29122D133519530069CC7C /* Secret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secret.h; sourceTree = "<group>"; };
+		0A29122D133519530069CC7C /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		0A346C97133679D100416F1E /* JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSON.xcodeproj; path = Library/JSON/JSON.xcodeproj; sourceTree = "<group>"; };
 		0A346D5B13367CBB00416F1E /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = Library/Frameworks/BWToolkitFramework.framework; sourceTree = DEVELOPER_DIR; };
 		0A414D5B13312868002B9FAE /* Diibar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diibar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,7 +158,7 @@
 				0A414D7213312868002B9FAE /* DiibarAppDelegate.m */,
 				0A414D7413312869002B9FAE /* MainMenu.xib */,
 				0A414D6613312868002B9FAE /* Supporting Files */,
-				0A29122D133519530069CC7C /* Secret.h */,
+				0A29122D133519530069CC7C /* Config.h */,
 			);
 			path = Diibar;
 			sourceTree = "<group>";

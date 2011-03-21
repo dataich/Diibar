@@ -48,7 +48,7 @@ static const NSInteger count = 100;
         NSRunAlertPanel(@"Set your Diigo's account", 
                         @"Your username and password are required to get bookmarks",
                         @"Preferences", nil, nil);
-        [_preferencesPanel setIsVisible:YES];
+        [self showPreferencesPanel];
         return;
     }
     
@@ -111,6 +111,7 @@ static const NSInteger count = 100;
 
 - (IBAction)showPreferencesPanel {
     [_preferencesPanel setIsVisible:YES];
+    [_preferencesPanel orderFrontRegardless];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -177,7 +178,7 @@ static const NSInteger count = 100;
         NSRunAlertPanel(@"Wrong username or password", 
                         @"Set username and password correctly.",
                         @"Preferences", nil, nil);
-        [_preferencesPanel setIsVisible:YES];
+        [self showPreferencesPanel];
         return;
         
     } else {

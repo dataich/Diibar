@@ -17,6 +17,7 @@
 
 static const NSString *applicationName = @"Diibar";
 static const NSInteger count = 100;
+static const NSInteger maxRecent = 100;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -77,11 +78,28 @@ static const NSInteger count = 100;
 
 - (void)createBookmarkItems {
     _tagsDictionary = [[NSMutableDictionary alloc] init];
-    [[_tagsItem submenu] removeAllItems];
+    [[_recentItem submenu] removeAllItems];
 
     NSArray *bookmarks = [NSArray arrayWithContentsOfFile:[self getPlistPath]];
     
+    NSInteger count = 0;
     for (NSDictionary *bookmark in bookmarks) {
+        NSMenuItem *itemInRecent = [[NSMenuItem alloc] initWithTitle:[bookmark valueForKey:@"title"] action:@selector(openBrowser:) keyEquivalent:@""];
+        [itemInRecent setToolTip:[bookmark valueForKey:@"url"]];
+        [[_recentItem submenu] addItem:itemInRecent];
+        [itemInRecent release];
+        count++;
+        
+        if(maxRecent <= count) {
+            break;
+        }
+    }
+    
+    NSSortDescriptor *sortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    NSArray *sortDescripters = [NSArray arrayWithObject:sortDescripter];
+    NSArray *sortedBookmarks = [[NSArray arrayWithArray:bookmarks] sortedArrayUsingDescriptors:sortDescripters];
+        
+    for (NSDictionary *bookmark in sortedBookmarks) {
         NSArray *tags = [[bookmark valueForKey:@"tags"] componentsSeparatedByString:@"'"];
 
         for(NSString *tag in tags) {
@@ -105,7 +123,7 @@ static const NSInteger count = 100;
     NSArray *sortedKeys = [[_tagsDictionary allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     for(NSString *key in sortedKeys) {
         NSMenuItem *tagItem = [_tagsDictionary valueForKey:key];
-        [[_tagsItem submenu] addItem:tagItem];        
+        [_menu insertItem:tagItem atIndex:2];
     }
 }
 
@@ -158,12 +176,8 @@ static const NSInteger count = 100;
                 }
             }
             
-            NSSortDescriptor *sortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
-            NSArray *sortDescripters = [NSArray arrayWithObject:sortDescripter];
-            NSArray *sortedArray = [[NSArray arrayWithArray:_jsonArray] sortedArrayUsingDescriptors:sortDescripters];
-            
             NSString *plistPath = [self getPlistPath];
-            if(![sortedArray writeToFile:plistPath atomically:YES]) {
+            if(![_jsonArray writeToFile:plistPath atomically:YES]) {
                 NSLog(@"could not write plist file.");
                 exit(0);
             }
@@ -219,7 +233,7 @@ static const NSInteger count = 100;
     [window release];
     [_statusItem release];
     [_menu release];
-    [_tagsItem release];
+    [_recentItem release];
     [_data release];
     [_tagsDictionary release];
 }

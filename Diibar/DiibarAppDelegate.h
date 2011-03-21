@@ -14,7 +14,7 @@
     NSPanel *_preferencesPanel;
     NSStatusItem *_statusItem;
     IBOutlet NSMenu *_menu;
-    IBOutlet NSMenuItem *_tagsItem;
+    IBOutlet NSMenuItem *_recentItem;
     IBOutlet NSMenuItem *_preferenceItem;
     IBOutlet NSTextField *_applicationName;
     IBOutlet NSTextField *_version;

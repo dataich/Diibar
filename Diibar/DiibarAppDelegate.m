@@ -110,8 +110,14 @@ static const NSInteger count = 100;
 }
 
 - (IBAction)showPreferencesPanel {
+    CGRect screenFrame = [[NSScreen mainScreen] frame];
+    CGRect panelFrame = [_preferencesPanel frame];
+    [_preferencesPanel setFrameTopLeftPoint:NSPointFromCGPoint(CGPointMake(screenFrame.size.width / 2 - panelFrame.size.width / 2 , screenFrame.size.height - 200))];
     [_preferencesPanel setIsVisible:YES];
     [_preferencesPanel orderFrontRegardless];
+    
+    NSLog(@"%f", screenFrame.size.width);
+    NSLog(@"%f", [_preferencesPanel frame].size.width);
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {

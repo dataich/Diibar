@@ -95,6 +95,7 @@ static const NSInteger count = 100;
             }
             
             NSMenuItem *itemInTag = [[NSMenuItem alloc] initWithTitle:[bookmark valueForKey:@"title"] action:@selector(openBrowser:) keyEquivalent:@""];
+            [itemInTag setToolTip:[bookmark valueForKey:@"url"]];
             [[tagItem submenu] addItem:itemInTag];
             [itemInTag release];
         }

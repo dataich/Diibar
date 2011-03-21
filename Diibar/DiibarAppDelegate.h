@@ -16,6 +16,8 @@
     IBOutlet NSMenu *_menu;
     IBOutlet NSMenuItem *_tagsItem;
     IBOutlet NSMenuItem *_preferenceItem;
+    IBOutlet NSTextField *_applicationName;
+    IBOutlet NSTextField *_version;
     NSMutableData *_data;
     NSMutableDictionary *_tagsDictionary;
     NSMutableArray *_jsonArray;

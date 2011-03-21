@@ -20,6 +20,10 @@ static const NSInteger count = 100;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    [_applicationName setTitleWithMnemonic:[NSString stringWithFormat:@"%@", applicationName]];
+    [_version setTitleWithMnemonic:[NSString stringWithFormat:@"Version %@", version]];
+
     _statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
     [_statusItem setHighlightMode:YES];
     [_statusItem setTitle:@"Diibar"]; 

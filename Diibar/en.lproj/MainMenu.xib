@@ -542,16 +542,6 @@ koSYmZmagRQBgawAhoY</bytes>
 							</object>
 						</object>
 					</object>
-					<object class="NSMenuItem" id="1063413881">
-						<reference key="NSMenu" ref="1047322349"/>
-						<bool key="NSIsDisabled">YES</bool>
-						<bool key="NSIsSeparator">YES</bool>
-						<string key="NSTitle"/>
-						<string key="NSKeyEquiv"/>
-						<int key="NSMnemonicLoc">2147483647</int>
-						<reference key="NSOnImage" ref="665879337"/>
-						<reference key="NSMixedImage" ref="500889136"/>
-					</object>
 				</object>
 			</object>
 			<object class="NSCustomObject" id="976324537">
@@ -706,7 +696,6 @@ koSYmZmagRQBgawAhoY</bytes>
 						<reference key="object" ref="1047322349"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1063413881"/>
 							<reference ref="461415010"/>
 							<reference ref="935658331"/>
 							<reference ref="756902681"/>
@@ -717,11 +706,6 @@ koSYmZmagRQBgawAhoY</bytes>
 					<object class="IBObjectRecord">
 						<int key="objectID">535</int>
 						<reference key="object" ref="935658331"/>
-						<reference key="parent" ref="1047322349"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">540</int>
-						<reference key="object" ref="1063413881"/>
 						<reference key="parent" ref="1047322349"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -946,7 +930,6 @@ koSYmZmagRQBgawAhoY</bytes>
 					<string>533.IBEditorWindowLastContentRect</string>
 					<string>533.IBPluginDependency</string>
 					<string>535.IBPluginDependency</string>
-					<string>540.IBPluginDependency</string>
 					<string>625.IBPluginDependency</string>
 					<string>626.IBPluginDependency</string>
 					<string>627.IBEditorWindowLastContentRect</string>
@@ -992,8 +975,7 @@ koSYmZmagRQBgawAhoY</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{83, 751}, {202, 83}}</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{83, 761}, {202, 73}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

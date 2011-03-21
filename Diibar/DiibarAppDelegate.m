@@ -79,6 +79,10 @@ static const NSInteger maxRecent = 100;
 - (void)createBookmarkItems {
     _tagsDictionary = [[NSMutableDictionary alloc] init];
     [[_recentItem submenu] removeAllItems];
+    while (4 < [[_menu itemArray] count]) {
+        [_menu removeItemAtIndex:4];
+    }
+    [_menu addItem:[NSMenuItem separatorItem]];
 
     NSArray *bookmarks = [NSArray arrayWithContentsOfFile:[self getPlistPath]];
     
@@ -103,6 +107,9 @@ static const NSInteger maxRecent = 100;
         NSArray *tags = [[bookmark valueForKey:@"tags"] componentsSeparatedByString:@"'"];
 
         for(NSString *tag in tags) {
+            if([tag compare:@"no_tag"] == NSOrderedSame) {
+                tag = @"No Tag";
+            }
             NSMenuItem *tagItem = [_tagsDictionary valueForKey:tag];
             if(!tagItem) {
                 NSMenu *menu = [[NSMenu alloc] init];
@@ -121,9 +128,17 @@ static const NSInteger maxRecent = 100;
     }
     
     NSArray *sortedKeys = [[_tagsDictionary allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    NSInteger tagItemIndex = 5;
     for(NSString *key in sortedKeys) {
         NSMenuItem *tagItem = [_tagsDictionary valueForKey:key];
-        [_menu insertItem:tagItem atIndex:5];
+        
+        if([key compare:@"No Tag"] == NSOrderedSame) {
+            [_menu insertItem:tagItem atIndex:4];
+            tagItemIndex++;
+        } else {
+            [_menu insertItem:tagItem atIndex:tagItemIndex];
+        }
+        
     }
 }
 

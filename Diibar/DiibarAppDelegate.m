@@ -14,9 +14,6 @@
 
 @synthesize window;
 @synthesize _preferencesPanel;
-@synthesize _data;
-@synthesize _tagsDictionary;
-@synthesize _jsonArray;
 
 static const NSString *applicationName = @"Diibar";
 static const NSInteger count = 100;
@@ -130,8 +127,8 @@ static const NSInteger count = 100;
     NSLog(@"connectionDidFinishLoading");
     NSString *jsonString = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
     NSLog(@"%@", jsonString);
-    [jsonString release];
     NSArray *json = [jsonString JSONValue];
+    [jsonString release];
     
     if([json isKindOfClass:[NSArray class]]) {
         if(0 < [json count]) {

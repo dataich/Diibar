@@ -16,6 +16,7 @@
 		0A414D7013312868002B9FAE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0A414D6E13312868002B9FAE /* Credits.rtf */; };
 		0A414D7313312868002B9FAE /* DiibarAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A414D7213312868002B9FAE /* DiibarAppDelegate.m */; };
 		0A414D7613312869002B9FAE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A414D7413312869002B9FAE /* MainMenu.xib */; };
+		0A59CE451337994B00608420 /* JSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A346CA1133679D100416F1E /* JSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0A346D6613367CED00416F1E /* BWToolkitFramework.framework in CopyFiles */,
+				0A59CE451337994B00608420 /* JSON.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

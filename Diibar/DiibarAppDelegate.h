@@ -24,9 +24,6 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSPanel *_preferencesPanel;
-@property (nonatomic, retain) NSMutableData *_data;
-@property (nonatomic, retain) NSMutableDictionary *_tagsDictionary;
-@property (nonatomic, retain) NSMutableArray *_jsonArray;
 
 - (void)getBookmarks;
 - (void)fetchBookmarks;

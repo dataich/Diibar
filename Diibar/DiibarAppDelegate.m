@@ -28,6 +28,7 @@ static const NSString *applicationName = @"Diibar";
     [_statusItem setMenu:_menu];
     [_statusItem setEnabled:YES];
     
+    [_syncButton setAction:@selector(getBookmarks)];
     [_preferenceItem setAction:@selector(showPreferencesPanel)];
     
     [self createBookmarkItems];
@@ -35,7 +36,20 @@ static const NSString *applicationName = @"Diibar";
 }
 
 - (void)getBookmarks {
-    NSString *uri = [NSString stringWithFormat:@"https://secure.diigo.com/api/v2/bookmarks?filter=all&count=100&key=%@&user=%@", kKey, kUser];
+    [_preferencesPanel setIsVisible:NO];
+
+    NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"values.username"];
+    NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:@"values.password"];
+
+    if (!(username && password)) {
+        NSRunAlertPanel(@"Set your Diigo's account", 
+                        @"Your username and password are required to get bookmarks",
+                        @"Preferences", nil, nil);
+        [_preferencesPanel setIsVisible:YES];
+        return;
+    }    
+    
+    NSString *uri = [NSString stringWithFormat:@"https://secure.diigo.com/api/v2/bookmarks?filter=all&count=100&key=%@&user=%@", kKey, username];
     
     NSURL *url = [NSURL URLWithString:uri];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -133,9 +147,17 @@ static const NSString *applicationName = @"Diibar";
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     if ([challenge proposedCredential]) {
         [connection cancel];
+        NSRunAlertPanel(@"Wrong username or password", 
+                        @"Set username and password correctly.",
+                        @"Preferences", nil, nil);
+        [_preferencesPanel setIsVisible:YES];
+        return;
+        
     } else {
-        NSURLCredential *credential = [NSURLCredential credentialWithUser:kUser
-                                                                 password:kPassword
+        NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"values.username"];
+        NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:@"values.password"];
+        NSURLCredential *credential = [NSURLCredential credentialWithUser:username
+                                                                 password:password
                                                               persistence:NSURLCredentialPersistenceNone];
         [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
     }

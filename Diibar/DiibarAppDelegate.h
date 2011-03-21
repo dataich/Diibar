@@ -13,6 +13,7 @@
     NSWindow *window;
     NSPanel *_preferencesPanel;
     NSStatusItem *_statusItem;
+    IBOutlet NSButton *_syncButton;
     IBOutlet NSMenu *_menu;
     IBOutlet NSMenuItem *_tagsItem;
     IBOutlet NSMenuItem *_preferenceItem;

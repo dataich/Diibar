@@ -141,10 +141,10 @@ static const NSInteger maxRecent = 100;
         
         if([key compare:@"No Tag"] == NSOrderedSame) {
             [_menu insertItem:tagItem atIndex:4];
-            tagItemIndex++;
         } else {
             [_menu insertItem:tagItem atIndex:tagItemIndex];
         }
+        tagItemIndex++;
         
     }
     

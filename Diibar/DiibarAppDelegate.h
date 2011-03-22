@@ -23,6 +23,8 @@
     NSMutableArray *_jsonArray;
     NSInteger _start;
     Boolean _syncInProgress;
+    
+    NSArray *_browsers;
 }
 
 @property (assign) IBOutlet NSWindow *window;

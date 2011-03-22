@@ -36,6 +36,8 @@ static const NSInteger maxRecent = 100;
     [_preferenceItem setAction:@selector(showPreferencesPanel)];
     _syncInProgress = NO;
     
+    _browsers = (NSArray*)LSCopyAllHandlersForURLScheme((CFStringRef)@"http");
+    
     [self createBookmarkItems];
     [self getBookmarks];    
 }
@@ -80,7 +82,18 @@ static const NSInteger maxRecent = 100;
 
 - (void)openBrowser:(NSMenuItem*)item {
     NSURL *url = [NSURL URLWithString:[item toolTip]];
-    [[NSWorkspace sharedWorkspace] openURL:url];
+    
+    NSInteger index = [item tag];
+    if(index) {
+        [[NSWorkspace sharedWorkspace] openURLs:[NSArray arrayWithObject:url]
+                        withAppBundleIdentifier:[_browsers objectAtIndex:index]
+                                        options:NSWorkspaceLaunchDefault
+                 additionalEventParamDescriptor:nil
+                              launchIdentifiers:nil];
+        
+    } else {
+        [[NSWorkspace sharedWorkspace] openURL:url];
+    }
 }
 
 - (void)createBookmarkItems {
@@ -128,8 +141,21 @@ static const NSInteger maxRecent = 100;
             }
             
             NSMenuItem *itemInTag = [[NSMenuItem alloc] initWithTitle:[bookmark valueForKey:@"title"] action:@selector(openBrowser:) keyEquivalent:@""];
+            NSMenu *menu = [[NSMenu alloc] init];
+            [itemInTag setSubmenu:menu];
             [itemInTag setToolTip:[bookmark valueForKey:@"url"]];
             [[tagItem submenu] addItem:itemInTag];
+            
+            NSInteger index = 0;
+            for(NSString *identifier in _browsers) {
+                NSMenuItem *itemInBookmark = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"Open in %@", identifier] action:@selector(openBrowser:) keyEquivalent:@""];
+                [itemInBookmark setToolTip:[bookmark valueForKey:@"url"]];
+                [itemInBookmark setTag:index];
+                [[itemInTag submenu] addItem:itemInBookmark];
+                [itemInBookmark release];
+                index++;
+            }
+            
             [itemInTag release];
         }
     }
@@ -260,13 +286,14 @@ static const NSInteger maxRecent = 100;
     [super dealloc];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
+
     [window release];
     [_statusItem release];
     [_menu release];
     [_recentItem release];
     [_data release];
     [_tagsDictionary release];
+    [_browsers release];
 }
 
 @end

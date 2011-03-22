@@ -34,18 +34,25 @@ static const NSInteger maxRecent = 100;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getBookmarks) name:NSWindowWillCloseNotification object:_preferencesPanel];
     [_preferenceItem setAction:@selector(showPreferencesPanel)];
+    _syncInProgress = NO;
     
     [self createBookmarkItems];
     [self getBookmarks];    
 }
 
 - (void)getBookmarks {
+    if(_syncInProgress) {
+        return;
+    }
+    
+    _syncInProgress = YES;
     [_preferencesPanel setIsVisible:NO];
 
     NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"values.username"];
     NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:@"values.password"];
 
     if (!(username && password)) {
+        _syncInProgress = NO;
         NSRunAlertPanel(@"Set your Diigo's account", 
                         @"Your username and password are required to get bookmarks",
                         @"Preferences", nil, nil);
@@ -140,6 +147,8 @@ static const NSInteger maxRecent = 100;
         }
         
     }
+    
+    _syncInProgress = NO;
 }
 
 - (IBAction)showPreferencesPanel {
@@ -169,7 +178,8 @@ static const NSInteger maxRecent = 100;
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"didFailWithError:%@", [error description]);    
+    NSLog(@"didFailWithError:%@", [error description]);
+    _syncInProgress = NO;
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -219,6 +229,7 @@ static const NSInteger maxRecent = 100;
                         @"Set username and password correctly.",
                         @"Preferences", nil, nil);
         [self showPreferencesPanel];
+        _syncInProgress = NO;
         return;
         
     } else {

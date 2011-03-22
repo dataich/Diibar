@@ -22,6 +22,7 @@
     NSMutableDictionary *_tagsDictionary;
     NSMutableArray *_jsonArray;
     NSInteger _start;
+    Boolean _syncInProgress;
 }
 
 @property (assign) IBOutlet NSWindow *window;

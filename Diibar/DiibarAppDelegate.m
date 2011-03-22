@@ -143,9 +143,14 @@ static const NSInteger maxRecent = 100;
 }
 
 - (IBAction)showPreferencesPanel {
-    CGRect screenFrame = [[NSScreen mainScreen] frame];
-    CGRect panelFrame = [_preferencesPanel frame];
-    [_preferencesPanel setFrameTopLeftPoint:NSPointFromCGPoint(CGPointMake(screenFrame.size.width / 2 - panelFrame.size.width / 2 , screenFrame.size.height - 200))];
+    NSRect screenFrame = [[NSScreen mainScreen] frame];
+    NSRect panelFrame = [_preferencesPanel frame];
+    
+    NSPoint point;
+    point.x = screenFrame.size.width / 2 - panelFrame.size.width / 2;
+    point.y = screenFrame.size.height - 200;
+    
+    [_preferencesPanel setFrameTopLeftPoint:point];
     [_preferencesPanel setIsVisible:YES];
     [_preferencesPanel orderFrontRegardless];
     

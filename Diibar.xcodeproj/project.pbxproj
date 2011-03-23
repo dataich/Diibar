@@ -13,7 +13,6 @@
 		0A414D6013312868002B9FAE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A414D5F13312868002B9FAE /* Cocoa.framework */; };
 		0A414D6A13312868002B9FAE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A414D6813312868002B9FAE /* InfoPlist.strings */; };
 		0A414D6D13312868002B9FAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A414D6C13312868002B9FAE /* main.m */; };
-		0A414D7013312868002B9FAE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0A414D6E13312868002B9FAE /* Credits.rtf */; };
 		0A414D7313312868002B9FAE /* DiibarAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A414D7213312868002B9FAE /* DiibarAppDelegate.m */; };
 		0A414D7613312869002B9FAE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A414D7413312869002B9FAE /* MainMenu.xib */; };
 		0A59CE451337994B00608420 /* JSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A346CA1133679D100416F1E /* JSON.framework */; };
@@ -86,7 +85,6 @@
 		0A414D6913312868002B9FAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0A414D6B13312868002B9FAE /* Diibar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Diibar-Prefix.pch"; sourceTree = "<group>"; };
 		0A414D6C13312868002B9FAE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0A414D6F13312868002B9FAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		0A414D7113312868002B9FAE /* DiibarAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiibarAppDelegate.h; sourceTree = "<group>"; };
 		0A414D7213312868002B9FAE /* DiibarAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiibarAppDelegate.m; sourceTree = "<group>"; };
 		0A414D7513312869002B9FAE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 				0A414D6813312868002B9FAE /* InfoPlist.strings */,
 				0A414D6B13312868002B9FAE /* Diibar-Prefix.pch */,
 				0A414D6C13312868002B9FAE /* main.m */,
-				0A414D6E13312868002B9FAE /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -273,7 +270,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A414D6A13312868002B9FAE /* InfoPlist.strings in Resources */,
-				0A414D7013312868002B9FAE /* Credits.rtf in Resources */,
 				0A414D7613312869002B9FAE /* MainMenu.xib in Resources */,
 				0AD804C0133A585A00850FE5 /* StatusImage.png in Resources */,
 				0AD804D3133A58CA00850FE5 /* StatusAlternateImage.png in Resources */,
@@ -309,14 +305,6 @@
 				0A414D6913312868002B9FAE /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		0A414D6E13312868002B9FAE /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0A414D6F13312868002B9FAE /* en */,
-			);
-			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 		0A414D7413312869002B9FAE /* MainMenu.xib */ = {

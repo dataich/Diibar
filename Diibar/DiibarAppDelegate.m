@@ -108,10 +108,9 @@ static const NSInteger maxRecent = 100;
     
     NSInteger count = 0;
     for (NSDictionary *bookmark in bookmarks) {
-        NSMenuItem *itemInRecent = [[NSMenuItem alloc] initWithTitle:[bookmark valueForKey:@"title"] action:@selector(openBrowser:) keyEquivalent:@""];
-        [itemInRecent setToolTip:[bookmark valueForKey:@"url"]];
+        NSMenuItem *itemInRecent = [self createBookmarkItem:[bookmark valueForKey:@"title"] url:[bookmark valueForKey:@"url"]];
         [[_recentItem submenu] addItem:itemInRecent];
-        [itemInRecent release];
+        
         count++;
         
         if(maxRecent <= count) {
@@ -140,23 +139,8 @@ static const NSInteger maxRecent = 100;
                 [menu release];
             }
             
-            NSMenuItem *itemInTag = [[NSMenuItem alloc] initWithTitle:[bookmark valueForKey:@"title"] action:@selector(openBrowser:) keyEquivalent:@""];
-            NSMenu *menu = [[NSMenu alloc] init];
-            [itemInTag setSubmenu:menu];
-            [itemInTag setToolTip:[bookmark valueForKey:@"url"]];
+            NSMenuItem *itemInTag = [self createBookmarkItem:[bookmark valueForKey:@"title"] url:[bookmark valueForKey:@"url"]];
             [[tagItem submenu] addItem:itemInTag];
-            
-            NSInteger index = 0;
-            for(NSString *identifier in _browsers) {
-                NSMenuItem *itemInBookmark = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"Open in %@", identifier] action:@selector(openBrowser:) keyEquivalent:@""];
-                [itemInBookmark setToolTip:[bookmark valueForKey:@"url"]];
-                [itemInBookmark setTag:index];
-                [[itemInTag submenu] addItem:itemInBookmark];
-                [itemInBookmark release];
-                index++;
-            }
-            
-            [itemInTag release];
         }
     }
     
@@ -175,6 +159,27 @@ static const NSInteger maxRecent = 100;
     }
     
     _syncInProgress = NO;
+}
+
+- (NSMenuItem*)createBookmarkItem:(NSString*)title url:(NSString*)url {
+    NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:title action:@selector(openBrowser:) keyEquivalent:@""];
+    NSMenu *menu = [[NSMenu alloc] init];
+    [item setSubmenu:menu];
+    [item setToolTip:url];
+    [menu release];
+    
+    NSInteger index = 0;
+    for(NSString *identifier in _browsers) {
+        NSMenuItem *itemInBookmark = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"Open in %@", identifier] action:@selector(openBrowser:) keyEquivalent:@""];
+        [itemInBookmark setToolTip:url];
+        [itemInBookmark setTag:index];
+        [[item submenu] addItem:itemInBookmark];
+        [itemInBookmark release];
+        index++;
+    }
+    
+    return [item autorelease];
+    
 }
 
 - (IBAction)showPreferencesPanel {

@@ -32,6 +32,7 @@
 
 - (void)getBookmarks;
 - (void)fetchBookmarks;
+- (NSMenuItem*)createBookmarkItem:(NSString*)title url:(NSString*)url;
 - (void)createBookmarkItems;
 - (IBAction)showPreferencesPanel;
 - (NSString*)getPlistDirectory;

@@ -24,7 +24,7 @@
     NSInteger _start;
     Boolean _syncInProgress;
     
-    NSArray *_browsers;
+    NSMutableArray *_browsers;
 }
 
 @property (assign) IBOutlet NSWindow *window;
@@ -32,6 +32,7 @@
 
 - (void)getBookmarks;
 - (void)fetchBookmarks;
+- (void)getBrowsers;
 - (NSMenuItem*)createBookmarkItem:(NSString*)title url:(NSString*)url;
 - (void)createBookmarkItems;
 - (IBAction)showPreferencesPanel;

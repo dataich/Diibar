@@ -36,10 +36,31 @@ static const NSInteger maxRecent = 100;
     [_preferenceItem setAction:@selector(showPreferencesPanel)];
     _syncInProgress = NO;
     
-    _browsers = (NSArray*)LSCopyAllHandlersForURLScheme((CFStringRef)@"http");
-    
+    [self getBrowsers];
     [self createBookmarkItems];
     [self getBookmarks];    
+}
+
+- (void)getBrowsers {
+    NSArray *identifiers = (NSArray*)LSCopyAllHandlersForURLScheme((CFStringRef)@"http");
+    _browsers = [[NSMutableArray alloc] initWithCapacity:[identifiers count]];
+    
+    NSArray *browsers = [NSArray arrayWithObjects:
+                         @"org.mozilla.firefox",
+                         @"com.rockmelt.RockMelt",
+                         @"com.apple.Safari",
+                         @"com.google.chrome",
+                         @"com.operasoftware.Opera",
+                         nil];
+    for (NSString *identifier in identifiers) {
+        for (NSString *browserIdentifier in browsers) {   
+            if ([identifier compare:browserIdentifier] == NSOrderedSame) {
+                [_browsers addObject:identifier];
+                break;
+            }    
+        }
+    }
+    [identifiers release];
 }
 
 - (void)getBookmarks {
@@ -170,7 +191,13 @@ static const NSInteger maxRecent = 100;
     
     NSInteger index = 0;
     for(NSString *identifier in _browsers) {
-        NSMenuItem *itemInBookmark = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"Open in %@", identifier] action:@selector(openBrowser:) keyEquivalent:@""];
+        NSArray *separatedArray = [identifier componentsSeparatedByString:@"."];
+        NSString *browserName = [separatedArray objectAtIndex:[separatedArray count] - 1];
+        NSRange range = NSMakeRange(0, 1);
+        browserName = [browserName stringByReplacingCharactersInRange:range
+                                                           withString:[[browserName substringWithRange:range] uppercaseString]];
+        
+        NSMenuItem *itemInBookmark = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"Open in %@", browserName] action:@selector(openBrowser:) keyEquivalent:@""];
         [itemInBookmark setToolTip:url];
         [itemInBookmark setTag:index];
         [[item submenu] addItem:itemInBookmark];

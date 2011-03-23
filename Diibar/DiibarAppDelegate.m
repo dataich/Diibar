@@ -19,6 +19,7 @@ static const NSString *applicationName = @"Diibar";
 static const NSInteger count = 100;
 static const NSInteger maxRecent = 100;
 static const NSInteger defaultBrowser = 999;
+static const NSInteger retryCount = 10;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -43,6 +44,8 @@ static const NSInteger defaultBrowser = 999;
 }
 
 - (void)getBrowsers {
+    _triedCount = 0;
+    
     NSArray *identifiers = (NSArray*)LSCopyAllHandlersForURLScheme((CFStringRef)@"http");
     _browsers = [[NSMutableArray alloc] initWithCapacity:[identifiers count]];
     
@@ -99,6 +102,7 @@ static const NSInteger defaultBrowser = 999;
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:self];
+    
     [connection start];
 }
 
@@ -298,34 +302,29 @@ static const NSInteger defaultBrowser = 999;
     [jsonString release];
     
     if([json isKindOfClass:[NSArray class]]) {
+        _triedCount = 0;        
         if(0 < [json count]) {
             [_jsonArray addObjectsFromArray:json];
             _start = _start + count;
             [self fetchBookmarks];
         } else {
-            NSString *directory = [self getPlistDirectory];
-            
-            NSFileManager *manager = [NSFileManager defaultManager];
-            BOOL isDirectory = YES;
-            if(![manager fileExistsAtPath:directory isDirectory:&isDirectory]) {
-                NSError *error;
-                if(![manager createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:&error]) {
-                    NSLog(@"%@", [error description]); 
-                }
-            }
-            
-            NSString *plistPath = [self getPlistPath];
-            if(![_jsonArray writeToFile:plistPath atomically:YES]) {
-                NSLog(@"could not write plist file.");
-                exit(0);
-            }
-            _jsonArray = nil;
-            [_jsonArray release];
-            
+            [self savePlist];
             [self createBookmarkItems];
         }
     } else if ([json isKindOfClass:[NSDictionary class]]) {
-        [self fetchBookmarks];
+        _triedCount++;
+        
+        if(retryCount <= _triedCount)
+        {
+            NSRunAlertPanel(@"API Limit Exceeded", @"Sync bookmarks is not completed.\n", @"Close", nil, nil);
+            [self savePlist];
+            [self createBookmarkItems];
+            
+        } else {
+            [self fetchBookmarks];
+        }
+
+        
     }
 
 }
@@ -348,6 +347,28 @@ static const NSInteger defaultBrowser = 999;
                                                               persistence:NSURLCredentialPersistenceNone];
         [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
     }
+}
+
+- (void) savePlist {
+    NSString *directory = [self getPlistDirectory];
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    BOOL isDirectory = YES;
+    if(![manager fileExistsAtPath:directory isDirectory:&isDirectory]) {
+        NSError *error;
+        if(![manager createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:&error]) {
+            NSLog(@"%@", [error description]); 
+        }
+    }
+    
+    NSString *plistPath = [self getPlistPath];
+    if(![_jsonArray writeToFile:plistPath atomically:YES]) {
+        NSLog(@"could not write plist file.");
+        exit(0);
+    }
+    _jsonArray = nil;
+    [_jsonArray release];
+    
 }
 
 - (NSString*)getPlistDirectory {

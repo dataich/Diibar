@@ -22,6 +22,7 @@
     NSMutableDictionary *_tagsDictionary;
     NSMutableArray *_jsonArray;
     NSInteger _start;
+    NSInteger _triedCount;
     Boolean _syncInProgress;
     
     NSMutableArray *_browsers;
@@ -35,6 +36,7 @@
 - (void)getBrowsers;
 - (NSMenuItem*)createBookmarkItem:(NSString*)title url:(NSString*)url;
 - (void)createBookmarkItems;
+- (void)savePlist;
 - (IBAction)showPreferencesPanel;
 - (IBAction)toggleLoginItem:(id)sender;
 - (void)addLoginItem:(LSSharedFileListRef )loginItems ForPath:(NSString *)applicationPath;

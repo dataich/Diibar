@@ -283,7 +283,11 @@ static const NSInteger defaultBrowser = 999;
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     NSLog(@"didFailWithError:%@", [error description]);
+
+    NSRunAlertPanel(@"Error", [error localizedDescription], @"Quit", nil, nil);
     _syncInProgress = NO;
+    
+    [[NSApplication sharedApplication] terminate:self];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {

@@ -2,18 +2,13 @@ h1. Diibar
 
 h2. ABOUT
 
-*In Development, almost!!*
 Diibar is a Diigo client in menubar for Mac OS X.
 
 h2. FEATURE
 
-* Sync diibar's bookmarks
+* Sync Diigo's bookmarks
 * Show your bookmarks in menu-bar
-* Open bookmark with default browser
-
-h2. TODO
-
-* Open bookmark with non-default browser (selectable).
+* Open bookmark with default browser or non-default browser
 
 h2. LICENSE
 

@@ -18,6 +18,7 @@
 static const NSString *applicationName = @"Diibar";
 static const NSInteger count = 100;
 static const NSInteger maxRecent = 100;
+static const NSInteger defaultBrowser = 999;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -104,16 +105,14 @@ static const NSInteger maxRecent = 100;
 - (void)openBrowser:(NSMenuItem*)item {
     NSURL *url = [NSURL URLWithString:[item toolTip]];
     
-    NSInteger index = [item tag];
-    if(index) {
+    if([item tag] == defaultBrowser) {
+        [[NSWorkspace sharedWorkspace] openURL:url];
+    } else {
         [[NSWorkspace sharedWorkspace] openURLs:[NSArray arrayWithObject:url]
-                        withAppBundleIdentifier:[_browsers objectAtIndex:index]
+                        withAppBundleIdentifier:[_browsers objectAtIndex:[item tag]]
                                         options:NSWorkspaceLaunchDefault
                  additionalEventParamDescriptor:nil
                               launchIdentifiers:nil];
-        
-    } else {
-        [[NSWorkspace sharedWorkspace] openURL:url];
     }
 }
 
@@ -187,6 +186,7 @@ static const NSInteger maxRecent = 100;
     NSMenu *menu = [[NSMenu alloc] init];
     [item setSubmenu:menu];
     [item setToolTip:url];
+    [item setTag:defaultBrowser];
     [menu release];
     
     NSInteger index = 0;

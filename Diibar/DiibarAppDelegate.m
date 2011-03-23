@@ -225,6 +225,52 @@ static const NSInteger defaultBrowser = 999;
     NSLog(@"%f", [_preferencesPanel frame].size.width);
 }
 
+- (IBAction)toggleLoginItem:(id)sender {
+	NSString *applicationPath = [[NSBundle mainBundle] bundlePath];
+    
+	LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
+    
+	if (loginItems) {
+		if ([sender state] == NSOnState)
+			[self addLoginItem:loginItems ForPath:applicationPath];
+		else
+			[self removeLoginItem:loginItems ForPath:applicationPath];
+	}
+
+	CFRelease(loginItems);
+}
+
+- (void)addLoginItem:(LSSharedFileListRef )loginItems ForPath:(NSString *)applicationPath {
+	CFURLRef url = (CFURLRef)[NSURL fileURLWithPath:applicationPath];
+	LSSharedFileListItemRef item = LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemLast, NULL, NULL, url, NULL, NULL);		
+	if (item) {
+		CFRelease(item);
+    }
+}
+
+- (void)removeLoginItem:(LSSharedFileListRef )loginItems ForPath:(NSString *)applicationPath {
+	UInt32 seedValue;
+	CFURLRef pathRef;
+    
+    CFArrayRef loginItemRefs = LSSharedFileListCopySnapshot(loginItems, &seedValue);
+    
+	for (id item in (NSArray *)loginItemRefs) {		
+		LSSharedFileListItemRef itemRef = (LSSharedFileListItemRef)item;
+        
+		if (LSSharedFileListItemResolve(itemRef, 0, (CFURLRef*) &pathRef, NULL) == noErr) {
+			if ([[(NSURL *)pathRef path] hasPrefix:applicationPath]) {
+				LSSharedFileListItemRemove(loginItems, itemRef);
+                CFRelease(pathRef);
+                break;
+			}
+
+			CFRelease(pathRef);
+		}		
+	}
+    
+	CFRelease(loginItemRefs);
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     NSLog(@"didReceiveResponse");
     _data = [[NSMutableData alloc] initWithData:0];

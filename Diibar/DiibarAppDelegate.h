@@ -36,6 +36,9 @@
 - (NSMenuItem*)createBookmarkItem:(NSString*)title url:(NSString*)url;
 - (void)createBookmarkItems;
 - (IBAction)showPreferencesPanel;
+- (IBAction)toggleLoginItem:(id)sender;
+- (void)addLoginItem:(LSSharedFileListRef )loginItems ForPath:(NSString *)applicationPath;
+- (void)removeLoginItem:(LSSharedFileListRef )loginItems ForPath:(NSString *)applicationPath;
 - (NSString*)getPlistDirectory;
 - (NSString*)getPlistPath;
 

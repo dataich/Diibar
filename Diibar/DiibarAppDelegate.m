@@ -30,8 +30,8 @@ static const NSInteger duration = 3;
 
     _statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
     [_statusItem setHighlightMode:YES];
-    [_statusItem setTitle:@"Diibar"]; 
-    //    [statusItem setImage:[NSImage imageNamed:@"example.png"]];
+    [_statusItem setImage:[NSImage imageNamed:@"StatusImage.png"]];
+    [_statusItem setAlternateImage:[NSImage imageNamed:@"StatusAlternateImage.png"]];
     [_statusItem setMenu:_menu];
     [_statusItem setEnabled:YES];
     

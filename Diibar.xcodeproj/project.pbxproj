@@ -17,6 +17,8 @@
 		0A414D7313312868002B9FAE /* DiibarAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A414D7213312868002B9FAE /* DiibarAppDelegate.m */; };
 		0A414D7613312869002B9FAE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A414D7413312869002B9FAE /* MainMenu.xib */; };
 		0A59CE451337994B00608420 /* JSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A346CA1133679D100416F1E /* JSON.framework */; };
+		0AD804C0133A585A00850FE5 /* StatusImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD804BF133A585A00850FE5 /* StatusImage.png */; };
+		0AD804D3133A58CA00850FE5 /* StatusAlternateImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD804D2133A58CA00850FE5 /* StatusAlternateImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		0A414D7113312868002B9FAE /* DiibarAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiibarAppDelegate.h; sourceTree = "<group>"; };
 		0A414D7213312868002B9FAE /* DiibarAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiibarAppDelegate.m; sourceTree = "<group>"; };
 		0A414D7513312869002B9FAE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		0AD804BF133A585A00850FE5 /* StatusImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusImage.png; sourceTree = "<group>"; };
+		0AD804D2133A58CA00850FE5 /* StatusAlternateImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusAlternateImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,11 +160,13 @@
 		0A414D6513312868002B9FAE /* Diibar */ = {
 			isa = PBXGroup;
 			children = (
+				0A29122D133519530069CC7C /* Config.h */,
 				0A414D7113312868002B9FAE /* DiibarAppDelegate.h */,
 				0A414D7213312868002B9FAE /* DiibarAppDelegate.m */,
 				0A414D7413312869002B9FAE /* MainMenu.xib */,
+				0AD804BF133A585A00850FE5 /* StatusImage.png */,
+				0AD804D2133A58CA00850FE5 /* StatusAlternateImage.png */,
 				0A414D6613312868002B9FAE /* Supporting Files */,
-				0A29122D133519530069CC7C /* Config.h */,
 			);
 			path = Diibar;
 			sourceTree = "<group>";
@@ -269,6 +275,8 @@
 				0A414D6A13312868002B9FAE /* InfoPlist.strings in Resources */,
 				0A414D7013312868002B9FAE /* Credits.rtf in Resources */,
 				0A414D7613312869002B9FAE /* MainMenu.xib in Resources */,
+				0AD804C0133A585A00850FE5 /* StatusImage.png in Resources */,
+				0AD804D3133A58CA00850FE5 /* StatusAlternateImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

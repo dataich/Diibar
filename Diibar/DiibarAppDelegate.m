@@ -20,6 +20,7 @@ static const NSInteger count = 100;
 static const NSInteger maxRecent = 100;
 static const NSInteger defaultBrowser = 999;
 static const NSInteger retryCount = 10;
+static const NSInteger duration = 3;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -89,7 +90,15 @@ static const NSInteger retryCount = 10;
     
     _jsonArray = [[NSMutableArray alloc] init];
     _start = 0;
-    [self fetchBookmarks];
+    [self fetchBookmarksWithDelay];
+}
+
+- (void)fetchBookmarksWithDelay {
+    [NSTimer scheduledTimerWithTimeInterval:duration
+                                     target:self
+                                   selector:@selector(fetchBookmarks)
+                                   userInfo:nil
+                                    repeats:NO];
 }
 
 - (void)fetchBookmarks {
@@ -306,7 +315,7 @@ static const NSInteger retryCount = 10;
         if(0 < [json count]) {
             [_jsonArray addObjectsFromArray:json];
             _start = _start + count;
-            [self fetchBookmarks];
+            [self fetchBookmarksWithDelay];
         } else {
             [self savePlist];
             [self createBookmarkItems];
@@ -321,7 +330,7 @@ static const NSInteger retryCount = 10;
             [self createBookmarkItems];
             
         } else {
-            [self fetchBookmarks];
+            [self fetchBookmarksWithDelay];
         }
 
         

@@ -32,6 +32,7 @@
 @property (assign) IBOutlet NSPanel *_preferencesPanel;
 
 - (void)getBookmarks;
+- (void)fetchBookmarksWithDelay;
 - (void)fetchBookmarks;
 - (void)getBrowsers;
 - (NSMenuItem*)createBookmarkItem:(NSString*)title url:(NSString*)url;

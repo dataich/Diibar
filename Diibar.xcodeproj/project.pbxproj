@@ -191,6 +191,7 @@
 				0A414D5813312868002B9FAE /* Frameworks */,
 				0A414D5913312868002B9FAE /* Resources */,
 				0A346D7213367CF300416F1E /* CopyFiles */,
+				0A9500F5133B97E5007CD3AD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -277,6 +278,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A9500F5133B97E5007CD3AD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -ex\n\n[ \"$ACTION\" = build ] || exit 0\n[ \"$BUILD_VARIANTS\" = \"normal\" ] || exit 0\n[ \"$CONFIGURATION\" = \"Release\" ] || exit 0\n\ndir=\"$TEMP_FILES_DIR/disk\"\ndmg=\"$HOME/Desktop/$PROJECT_NAME.dmg\"\n\nrm -rf \"$dir\"\nmkdir \"$dir\"\ncp -R \"$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app\" \"$dir\"\ncp -R \"$PROJECT_DIR/README.txt\" \"$dir\"\ncp -R \"$PROJECT_DIR/LICENSE.txt\" \"$dir\"\nln -s \"/Applications\" \"$dir/Applications\"\nrm -f \"$dmg\"\nhdiutil create -srcfolder \"$dir\" -volname \"$PROJECT_NAME\" \"$dmg\"\nrm -rf \"$dir\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0A414D5713312868002B9FAE /* Sources */ = {

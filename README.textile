@@ -13,3 +13,9 @@ h2. FEATURE
 h2. LICENSE
 
 New BSD License. See LICENSE.txt. This product contains some open-sourced materials, see README.txt in detail.
+
+h2. GIVE ME AN ICON
+
+Unfortunately Diibar has no application icon...
+I'm not goot at graphic design.
+Could someone help me ?

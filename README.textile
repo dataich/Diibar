@@ -4,6 +4,11 @@ h2. ABOUT
 
 Diibar is a Diigo client in menubar for Mac OS X.
 
+h2. INSTALL
+
+# Download Diibar-*.dmg from "Downloads":https://github.com/dataich/Diibar/archives/master .
+# Double-Click downloaded Diibar-*.dmg and drag Diibar.app to your Applications directory.
+
 h2. FEATURE
 
 * Sync Diigo's bookmarks
